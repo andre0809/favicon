@@ -15,8 +15,15 @@ function ch2fi_page_header_output() {
     } else {
         $icon_url = plugins_url( 'favicon.ico', __FILE__ );
     ?>
-    <link rel="shortcut icon" href="<?php echo $icon_url; ?>" />
+    <link rel="shortcut icon" href="<?php echo $icon_url; ?>" />  /** add icon link to url 
     <?php }
 
 }
+function showmenu(){
+        add_menu_page( 'Test Plugin Page', 'Test Plugin', 'manage_options', 'test-plugin', 'favipage' );
+}
+function favipage(){
+        echo "<h2>Favicon Upload</h2>";
+}
 add_action( 'wp_head', 'ch2fi_page_header_output' );
+add_action('admin_menu', 'showmenu');
